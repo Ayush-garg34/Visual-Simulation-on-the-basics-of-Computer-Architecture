@@ -1,0 +1,9 @@
+int a
+int b
+int c
+b = 43
+c = 5
+a = b + c
+for i , 2
+	a = a + i
+end for

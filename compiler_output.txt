@@ -1,0 +1,22 @@
+mem = { a : 1023 , i : 1020 , c : 1021 , b : 1022 , } 
+
+    addi $s1 , $zero , 43;
+    sw    $s1 , b;
+    addi $s2 , $zero , 5;
+    sw    $s2 , c;
+    lw    $s1 , b;
+    lw    $s2 , c;
+    add  $s0 , $s1 , $s2;
+    sw    $s0 , a;
+    addi $s3 , $zero , 0;
+    sw    $s3 , i;
+Loop 1 :
+    beq $s3 , 2 , Exit 1;
+    lw    $s0 , a;
+    lw    $s3 , i;
+    add  $s0 , $s0 , $s3;
+    sw    $s0 , a;
+    addi $s3 , $s3 , 1;
+    sw    $s3 , i;
+    j     Loop 1;
+Exit 1 :
